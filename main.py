@@ -1,5 +1,17 @@
+# Вариант 1
 s = input()
-print(int(s[:-5] + s[-5:][::-1]))
-# [:-5] - всё до 5 последних символов - "1234"
-# [-5:] - последние 5 символов - "56789"
-# s[-5:][::-1] - Переворот последних 5 символов
+a = []
+for i in range(len(s), 0, -3):
+    a.append(s[max(0, i - 3):i])
+a.reverse()
+res = ",".join(a)
+print(res)
+
+# Вариант 2
+num = input()
+for idx in range(len(num) - 3, 0, -3):
+    num = num[:idx] + ',' + num[idx:]
+print(num)
+
+# Вариант 3
+print("{:,}".format(int(input())))
