@@ -1,17 +1,17 @@
 # Вариант 1
-s = input()
-a = []
-for i in range(len(s), 0, -3):
-    a.append(s[max(0, i - 3):i])
-a.reverse()
-res = ",".join(a)
-print(res)
+n, k = int(input()), int(input())
+res = 0
+for i in range(1, n + 1):
+    res = (res + k) % i
+print(res + 1)
 
 # Вариант 2
-num = input()
-for idx in range(len(num) - 3, 0, -3):
-    num = num[:idx] + ',' + num[idx:]
-print(num)
-
-# Вариант 3
-print("{:,}".format(int(input())))
+n, k = int(input()), int(input())
+res = []
+for i in range(1, n + 1):
+    res.append(i)
+index = 0
+while len(res) > 1:
+    index = (index + k - 1) % len(res)      # новый_индекс = (текущий_индекс + k - 1) % len(список)
+    removed = res.pop(index)            # k - 1 потому что, если мы на 1 человеке, а хотим убить 3, нам нужно сделать 2 шага (3 - 1)
+print(*res)
