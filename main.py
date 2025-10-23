@@ -1,6 +1,14 @@
-n = [int(x) for x in input().split()]
-count = 1
-for i in range(1, len(n)):
-    if n[i] != n[i - 1]:
-        count += 1
-print(count)
+n = int(input())
+a = [int(input()) for _ in range(n)]
+target = int(input())
+flag = False
+
+for i in range(n):
+    for j in range(i + 1, n):
+        if a[i] * a[j] == target:
+            flag = True
+
+if flag:
+    print("ДА")
+else:
+    print("НЕТ")
