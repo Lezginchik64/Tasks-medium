@@ -1,4 +1,2 @@
-t, r = input(), input()
-var = ['ножницы', 'бумага', 'камень', 'ящерица', 'Спок']
-ans = ['ничья', 'Руслан', 'Тимур', 'Руслан', 'Тимур']
-print(ans[(var.index(t) - var.index(r))])
+s = input().split("О")
+print(len(max(s)))
