@@ -1,21 +1,14 @@
-# Вложенные списки
-my_list = ['Python', [10, 20, 30], ['Beegeek', 'Stepik!']]
+# Option 1
+list1 = [[1, 7, 8], [9, 7, 102], [6, 106, 105], [100, 99, 98, 103], [1, 2, 3]]
+maximum = 0
+for i in list1:
+    if maximum < max(i):
+        maximum = max(i)
 
-print(my_list[0][2])       # индексирование строки 'Python'
-print(my_list[1][1])       # индексирование списка [10, 20, 30]
-print(my_list[2][-1])      # индексирование списка ['Beegeek', 'Stepik!']
-print(my_list[2][-1][-1])  # индексирование строки 'Stepik!'
-# ВЫВОД:
-# t
-# 20
-# Stepik!
-# !
+print(maximum)
 
-# Общее количество элементов во вложенном списке
-total = 0
-my_list = [[0], [1, 2], [3, 4, 5], [], [10, 20, 30]]
+# Option 2
+list1 = [[1, 7, 8], [9, 7, 102], [6, 106, 105], [100, 99, 98, 103], [1, 2, 3]]
+maximum = max([max(row) for row in list1])
 
-for li in my_list:
-    total += len(li)
-
-print(total)
+print(maximum)
