@@ -1,3 +1,3 @@
 n = int(input())
-for _ in range(n):
-    print(list(range(1, n + 1)))
+for i in range(1, n + 1):
+    print(list(range(1, i + 1)))
