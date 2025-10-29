@@ -1,8 +1,23 @@
-import speedtest
+# Создание вложенных списков
+# Способ 1. Создадим пустой список, потом n раз добавим в него новый элемент – список длины m, составленный из нулей:
+n, m = int(input()), int(input())
+my_list = []
 
-st = speedtest.Speedtest()
-download = st.download() / 1_000_000
-upload = st.upload() / 1_000_000
+for _ in range(n):
+    my_list.append([0] * m)
 
-print(f"⬇️  Download: {download:.2f} Мбит/с")
-print(f" ⬆️  Upload: {upload:.2f} Мбит/с")
+print(my_list)
+
+# Способ 2. Сначала создадим список из n элементов (для начала просто из n нулей). Затем сделаем каждый элемент списка ссылкой на другой список из m элементов, заполненный нулями:
+n, m = int(input()), int(input())
+my_list = [0] * n
+
+for i in range(n):
+    my_list[i] = [0] * m
+
+print(my_list)
+
+# Способ 3. Можно использовать генератор списка: создадим список из n элементов, каждый из которых будет списком, состоящих из m нулей:
+n, m = int(input()), int(input())
+my_list = [[0] * m for _ in range(n)]
+print(my_list)
