@@ -1,14 +1,8 @@
-# Option 1
-list1 = [[1, 7, 8], [9, 7, 102], [6, 106, 105], [100, 99, 98, 103], [1, 2, 3]]
-maximum = 0
-for i in list1:
-    if maximum < max(i):
-        maximum = max(i)
+import speedtest
 
-print(maximum)
+st = speedtest.Speedtest()
+download = st.download() / 1_000_000
+upload = st.upload() / 1_000_000
 
-# Option 2
-list1 = [[1, 7, 8], [9, 7, 102], [6, 106, 105], [100, 99, 98, 103], [1, 2, 3]]
-maximum = max([max(row) for row in list1])
-
-print(maximum)
+print(f"⬇️  Download: {download:.2f} Мбит/с")
+print(f" ⬆️  Upload: {upload:.2f} Мбит/с")
