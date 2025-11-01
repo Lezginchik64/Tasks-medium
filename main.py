@@ -1,12 +1,7 @@
-a = input().split()
-res = [[]]
-
-for i in range(len(a)):
-    for j in range(i + 1, len(a) + 1):
-        res.append(a[i:j])
-print(sorted(res, key=len))
-
-# i + 1 нужно, чтобы срез был от нулевого элемента i, например "a" и до следующего (который на 1 правее)
-# len(a) + 1 - потому что range() не включает правую границу.
-# Если длина a = 3, то range(…, len(a)) = …, 3) — дойдёт только до 2.
-#А нам нужно, чтобы a[i:3] взяло до конца списка.
+import qrcode
+data = "https://vk.com/mpirimova"
+qr = qrcode.QRCode()
+qr.add_data(data)
+qr.make(fit=True)
+img = qr.make_image()
+img.save("my_qr.png")
