@@ -1,15 +1,16 @@
-n, m = int(input()), int(input())
+# 1
+n = int(input())
 matrix = []
+count = 0
 for i in range(n):
-    row = [input() for j in range(m)]
-    matrix.append(row)
+    temp = [int(num) for num in input().split()]
+    matrix.append(temp)
+    count += matrix[i][i]
+print(count)
 
-for i in range(n):
-    for j in range(m):
-        print(matrix[i][j], end=' ')
-    print()
-print()
-for i in range(m):
-    for j in range(n):
-        print(matrix[j][i], end=' ')
-    print()
+
+# 2
+res = 0
+for i in range(int(input())):
+    res += int(input().split()[i])
+print(res)
