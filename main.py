@@ -1,14 +1,13 @@
 n = int(input())
 matrix = []
+
+for _ in range(n):
+    row = [int(i) for i in input().split()]
+    matrix.append(row)
+
+largest = matrix[0][0]
 for i in range(n):
-    temp = [int(num) for num in input().split()]
-    matrix.append(temp)
-    average = sum(temp) / len(temp)                     # sum(temp) - сумма всех элементов строки, len(temp) - количество элементов в строке
-    count = 0
-    for j in temp:
-        if j > average:
-            count += 1
-    print(count)
-
-
-
+    for j in range(n):
+        if i >= j and matrix[i][j] > largest:      # сравниваем элементы главной диагоналии всего нижнего левого угла, начиная с largest
+            largest = matrix[i][j]
+print(largest)
