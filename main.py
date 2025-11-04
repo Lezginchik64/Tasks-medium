@@ -1,10 +1,9 @@
 n, m = int(input()), int(input())
-matrix = [[int(x) for x in input().split()] for _ in range(n)]
-row, col = 0, 0
+matrix = [input().split() for _ in range(n)]
+col1, col2 = [int(i) for i in input().split()]
 
 for i in range(n):
-    for j in range(m):
-        if matrix[i][j] > matrix[row][col]:
-            row, col = i, j
+    matrix[i][col1], matrix[i][col2] = matrix[i][col2], matrix[i][col1]
 
-print(row, col)
+for row in matrix:   # вывод матрицы
+    print(*row)
