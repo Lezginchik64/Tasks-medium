@@ -1,9 +1,16 @@
-n, m = int(input()), int(input())
+n = int(input())
 matrix = [input().split() for _ in range(n)]
-col1, col2 = [int(i) for i in input().split()]
+flag = True
 
 for i in range(n):
-    matrix[i][col1], matrix[i][col2] = matrix[i][col2], matrix[i][col1]
+    for j in range(n):
+        if matrix[i][j] != matrix[j][i]:
+            flag = False
+            break
+    if not flag:
+        break
 
-for row in matrix:   # вывод матрицы
-    print(*row)
+if flag:
+    print("YES")
+else:
+    print("NO")
