@@ -1,10 +1,13 @@
-n = int(input())
-matrix = [input().split() for _ in range(n)]
+xy = input()
+y = '87654321'.index(xy[1])
+x = 'abcdefgh'.index(xy[0])
+matrix = [["."]*8 for i in range(8)]
+matrix[y][x] = 'N'
+                                          # (y-i) — разница по вертикали между клеткой коня (y) и текущей клеткой (i) на доске.
+for i in range(8):                          # (x-j) — разница по горизонтали между клеткой коня (x) и текущей клеткой (j).
+    for j in range(8):                      # (y-i)**2 + (x-j)**2 — это квадрат расстояния по теореме Пифагора.
+        if (y-i)**2 + (x-j)**2 == 5:
+            matrix[i][j] = "*"
 
-for i in range(n // 2):
-    matrix[i], matrix[n - i - 1] = matrix[n - i - 1], matrix[i]         # Переворачивает строки сверху вниз
-                            # matrix[n - i - 1] - строка снизу (с конца)
-for i in range(n):
-    for j in range(n):
-        print(matrix[j][i], end=" ")                # Транспонирование - меняет местами строки и столбцы.
-    print()                                         # То есть matrix[j][i] вместо matrix[i][j].
+for row in matrix:
+    print(*row)
