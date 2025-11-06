@@ -1,10 +1,10 @@
-n, m = [int(x) for x in input().split()]
-matrix = [['*'] * m for _ in range(n)]
+n = int(input())
+matrix = [[0] * n for _ in range(n)]
 
 for i in range(n):
-    for j in range(m):
-        if (i + j) % 2 == 0:
-            matrix[i][j] = '.'
+    matrix[i][n - i - 1] = 1
+    for j in range(n - i, n):           # n - i - это значит правее побочной диагонали, пишем без -1, чтобы сама диагональ не изменялась
+        matrix[i][j] = 2
 
 for row in matrix:
     print(*row)
