@@ -1,10 +1,19 @@
-n = int(input())
-matrix = [[0] * n for _ in range(n)]
+# 1
+n, m = [int(x) for x in input().split()]
+matrix = [[int(i) for i in range(m)] for _ in range(n)]
+count = 1
 
 for i in range(n):
-    matrix[i][n - i - 1] = 1
-    for j in range(n - i, n):           # n - i - это значит правее побочной диагонали, пишем без -1, чтобы сама диагональ не изменялась
-        matrix[i][j] = 2
+    for j in range(m):
+        matrix[i][j] = count
+        count += 1
 
 for row in matrix:
-    print(*row)
+    print(*[str(x).ljust(3) for x in row])
+
+# 2
+n, m = [int(x) for x in input().split()]
+matrix = [[i * m + j + 1 for j in range(m)] for i in range(n)]          # i * m + j + 1 — формула, чтобы считать элементы подряд
+
+for row in matrix:
+    print(*[str(x).ljust(3) for x in row])
