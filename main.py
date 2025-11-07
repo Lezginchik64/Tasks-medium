@@ -1,9 +1,9 @@
-n, m = [int(i) for i in input().split()]
-matrix = [[int(i) for i in range(m)] for _ in range(n)]
+n, m = [int(x) for x in input().split()]
+matrix = [[i * m + j + 1 for j in range(m)] for i in range(n)]
 
 for i in range(n):
-    for j in range(m):                              # i + j - создаёт линейный сдвиг по строкам
-        matrix[i][j] = (i + j) % m + 1              # % m - это цикличность, идет по кругу. % m + 1 - добавляем 1, чтобы получить диапазон от 1 до m
+    if i % 2:                       # только для нечётных строк
+        matrix[i].reverse()
 
-for res in matrix:
-    print(*[str(i).ljust(3) for i in res])
+for row in matrix:
+    print(*[str(x).ljust(3) for x in row])
