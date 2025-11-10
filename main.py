@@ -1,38 +1,30 @@
-n, m = [int(x) for x in input().split()]
-matrix = [[0]* m for _ in range(n)]
-up = 0          # верхняя строка имеет индекс 0
-down = n - 1     # последняя строка в Python имеет индекс n - 1.
-left = 0            # первый столбец имеет индекс 0
-right = m - 1       # последняя колонка имеет индекс m-1
-num = 1
-max_num = n * m
+# 1
+n, m = [int(i) for i in input().split()]
+matrixA = [[int(i) for i in input().split()] for _ in range(n)]
+input()
+matrixB = [[int(i) for i in input().split()] for _ in range(n)]
+matrixC = [[0] * m for _ in range(n)]
 
-while num <= max_num:
-    # ➤ 1. Идем слева направо по верхней строке
-    for j in range(left, right + 1):
-        matrix[up][j] = num
-        num += 1
-    up += 1      # верхняя граница сдвигается вниз
+for i in range(n):
+    for j in range(m):
+        matrixC[i][j] = matrixA[i][j] + matrixB[i][j]
 
-    # ➤ 2. Идем сверху вниз по правому столбцу
-    for i in range(up, down + 1):
-        matrix[i][right] = num
-        num += 1
-    right -= 1      # правая граница сдвигается влево
+for row in matrixC:
+    print(*row)
 
-    # ➤ 3. Идем справа налево по нижней строке (если осталась)
-    if up <= down:                                      # Гарантирует, что ещё существует хотя бы одна строка между up и down.
-        for j in range(right, left - 1, -1):            # Если up > down, это значит, что все строки уже обработаны и этап «справа налево по нижней строке» надо пропустить.
-            matrix[down][j] = num
-            num += 1
-        down -= 1       # нижняя граница поднимается вверх
+# 2
+n, m = [int(i) for i in input().split()]
+matrix_1 = [input().split() for i in range(n)]
+input()
+matrix_2 = [input().split()  for j in range(n)]
+matrix_3 = []
 
-    # ➤ 4. Идем снизу вверх по левому столбцу (если остался)
-    if left <= right:               # Проверяет, что есть хотя бы один столбец между left и right, иначе этап «снизу вверх по левому столбцу» пропускаем.
-        for i in range(down, up - 1, - 1):
-            matrix[i][left] = num
-            num += 1
-        left += 1       # левая граница сдвигается вправо
+for i in range(n):
+    row = []
+    for j in range(m):
+        matrix_3_el = int(matrix_1[i][j]) + int(matrix_2[i][j])
+        row.append(matrix_3_el)
+    matrix_3.append(row)
 
-for row in matrix:
-    print(*[str(x).ljust(3) for x in row])
+for el in matrix_3:
+    print(*el)
