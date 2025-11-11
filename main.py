@@ -1,14 +1,17 @@
-n, m = [int(i) for i in input().split()]
-matrixA = [[int(i) for i in input().split()] for _ in range(n)]
-input()
-m, k = [int(i) for i in input().split()]
-matrixB = [[int(i) for i in input().split()] for _ in range(m)]
-matrixC = [[0] * k for _ in range(n)]
+from copy import deepcopy
 
-for i in range(n):              # идём по строкам первой матрицы, n - количество строк в первой матрице A.
-    for j in range(k):          # идём по столбцам второй матрицы, количество столбцов второй матрицы B.
-        for r in range(m):      # идём по элементам строки/столбца, m — это количество пар элементов, которые мы перемножаем. Количество столбцов A и строк B.
-            matrixC[i][j] += matrixA[i][r] * matrixB[r][j]
+n = int(input())
+matrix = [[int(i) for i in input().split()] for _ in range(n)]
+m = int(input())
+matrix1 = deepcopy(matrix)  # создаем копию матрицы
 
-for row in matrixC:
+for k in range(m - 1):
+    matrix2 = [[0 for i in range(n)] for _ in range(n)]
+    for i in range(n):
+        for j in range(n):
+            for r in range(n):
+                matrix2[i][j] += matrix1[i][r] * matrix[r][j]
+    matrix1 = deepcopy(matrix2)
+
+for row in matrix1:
     print(*row)
