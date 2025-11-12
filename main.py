@@ -1,13 +1,14 @@
 # 1
-tuples = [(), (), ('',), ('a', 'b'), (), ('a', 'b', 'c'), (1,), (), (), ('d',), ('', ''), ()]
-non_empty_tuples = [i for i in tuples if i]     # if i - Если i не пустое, не ноль и т.д
-
-print(non_empty_tuples)
+tuples = [(10, 20, 40), (40, 50, 60), (70, 80, 90), (10, 90), (1, 2, 3, 4), (5, 6, 10, 2, 1, 77)]
+new_tuples = [i[:-1] + (100,) for i in tuples]
+print(new_tuples)
 
 # 2
-tuples = [(), (), ('',), ('a', 'b'), (), ('a', 'b', 'c'), (1,), (), (), ('d',), ('', ''), ()]
-non_empty_tuples = []
+tuples = [(10, 20, 40), (40, 50, 60), (70, 80, 90), (10, 90), (1, 2, 3, 4), (5, 6, 10, 2, 1, 77)]
+new_tuples = []
 for i in tuples:
-    if len(i) != 0:
-        non_empty_tuples.append(i)
-print(non_empty_tuples)
+    temp_list = list(i)
+    temp_list[-1] = 100
+    new_tuples.append(tuple(temp_list))
+
+print(new_tuples)
