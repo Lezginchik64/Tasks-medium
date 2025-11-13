@@ -1,14 +1,12 @@
-# 1
-tuples = [(10, 20, 40), (40, 50, 60), (70, 80, 90), (10, 90), (1, 2, 3, 4), (5, 6, 10, 2, 1, 77)]
-new_tuples = [i[:-1] + (100,) for i in tuples]
-print(new_tuples)
+from retinaface import RetinaFace
+import matplotlib.pyplot as plt
+from deepface import DeepFace
 
-# 2
-tuples = [(10, 20, 40), (40, 50, 60), (70, 80, 90), (10, 90), (1, 2, 3, 4), (5, 6, 10, 2, 1, 77)]
-new_tuples = []
-for i in tuples:
-    temp_list = list(i)
-    temp_list[-1] = 100
-    new_tuples.append(tuple(temp_list))
+faces = RetinaFace.extract_faces(img_path = "7.jpeg", align = True)
+for face in faces:
+  plt.imshow(face)
+  plt.show()
 
-print(new_tuples)
+obj = DeepFace.verify("4.jpeg", "7.jpeg"
+          , model_name = 'ArcFace', detector_backend = 'retinaface')
+print(obj["verified"])
