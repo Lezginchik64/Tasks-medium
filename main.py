@@ -1,7 +1,14 @@
-numbers = (2, 3, 5, 7, -11, 13, 17, 19, 23, 29, 31, -6, 41, 43, 47, 53, 59, 61, -96, 71, 1000, -1)
+#1
+numbers = ((10, 10, 10, 12), (30, 45, 56, 45), (81, 80, 39, 32), (1, 2, 3, 4), (90, 10))
 
-count = 1
+average_values = [sum(tup) / len(tup) for tup in numbers]
+print(average_values)
+
+# 2
+numbers = ((10, 10, 10, 12), (30, 45, 56, 45), (81, 80, 39, 32), (1, 2, 3, 4), (90, 10))
+list_num = []
 for i in numbers:
-    count *= i
-
-print(count)
+    i = list(i)
+    average = sum(i) / len(i)
+    list_num.append(average)
+print(list_num)
