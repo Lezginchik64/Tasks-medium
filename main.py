@@ -1,2 +1,3 @@
-a = input()
-print("YES" if len(a) == len(set(a)) else "NO")
+a = set(input() + input())
+b = set('0123456789')
+print("YES" if a == b else "NO")
