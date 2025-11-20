@@ -1,9 +1,4 @@
-from calendar import *
+import re
 
-year = int(input("Enter Year: "))
-# print(calendar(year, 2, 1, 8, 2)) # Вывод календаря
-
-cal = TextCalendar(firstweekday=0)  # Monday
-
-month_num = int(input("Enter Month: "))
-print(cal.formatmonth(year, month_num))
+words = re.sub(r'[.,;:-?-!]', '', input().lower())
+print(len(set(words.split())))
