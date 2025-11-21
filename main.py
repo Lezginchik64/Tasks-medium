@@ -1,2 +1,2 @@
-set1, set2 = set(input().split()), set(input().split())
-print(len(set1 & set2))
+set1, set2 = {int(x) for x in input().split()}, {int(x) for x in input().split()}
+print(* sorted(set1 & set2))
