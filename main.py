@@ -1,2 +1,2 @@
 a, b = set(input()), set(input())
-print("YES" if not a.isdisjoint(b) else "NO")
+print("YES" if a.issuperset(b) else "NO")
