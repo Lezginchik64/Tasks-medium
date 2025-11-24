@@ -1,3 +1,55 @@
-files = ['python.png', 'qwerty.py', 'stepik.png', 'beegeek.org', 'windows.pnp', 'pen.txt', 'phone.py', 'book.txT', 'board.pNg', 'keyBoard.jpg', 'Python.PNg', 'apple.jpeg', 'png.png', 'input.tXt', 'split.pop', 'solution.Py', 'stepik.org', 'kotlin.ko', 'github.git']
-res = {i.lower() for i in files if i.lower().endswith(".png")}  # endswith(".png") - Проверяет, заканчивается ли строка указанным суффиксом (png)
-print(*sorted(res))
+# Frozenset
+
+# Замороженное множество (frozenset) - обладает характеристиками обычного множества, замороженное множество не может быть изменено после создания.
+#! Кортеж (тип tuple) – неизменяемая версия списка (тип list), а замороженное множество (тип frozenset) – неизменяемая версия обычного множества (тип set).
+# Для создания замороженного множества используется встроенная функция frozenset(), которая принимает в качестве аргумента другую коллекцию.
+myset1 = frozenset({1, 2, 3})                         # на основе множества
+myset2 = frozenset([1, 1, 2, 3, 4, 4, 4, 5, 6, 6])    # на основе списка
+myset3 = frozenset('aabcccddee')                      # на основе строки
+
+print(myset1)
+print(myset2)
+print(myset3)
+print()
+# Операции над замороженными множествами
+
+# Над замороженными множествами можно производить все операции, которые можно производить над обычными множествами:
+# объединение множеств: метод union() или оператор |;
+# пересечение множеств: метод intersection() или оператор &;
+# разность множеств: метод difference() или оператор -;
+# симметрическая разность множеств: метод symmetric_difference() или оператор ^.
+
+myset1 = frozenset('hello')
+myset2 = frozenset('world')
+
+print(myset1 | myset2)
+print(myset1 & myset2)
+print(myset1 ^ myset2)
+print()
+
+
+# Примечание 1. Будучи изменяемыми, обычные множества не могут быть элементами других множеств.
+# Замороженные множества являются неизменяемыми, а значит могут быть элементами других множеств.
+# Создаем frozenset
+fs1 = frozenset([1, 2, 3])
+fs2 = frozenset([4, 5, 6])
+# Создаем множество из frozenset
+x1 = set([fs1, fs2])
+print(x1)  # Вывод: {frozenset({1, 2, 3}), frozenset({4, 5, 6})}
+
+# Создаем set
+s1 = set([1, 2, 3])
+s2 = set([4, 5, 6])
+# Создаем множество из set
+x2 = set([s1, s2])
+print(x2) # ОШИБКА
+print()
+
+# Примечание 2. Методы, изменяющие множество, отсутствуют у замороженных множеств:
+# add() remove() discard() pop() clear() update() intersection_update() difference_update() symmetric_difference_update()
+
+# Примечание 3. Мы можем сравнивать простые (тип set) и замороженные множества (тип frozenset).
+myset1 = set('qwerty')
+myset2 = frozenset('qwerty')
+
+print(myset1 == myset2)
