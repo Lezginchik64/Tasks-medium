@@ -1,62 +1,19 @@
-# -- Перебор элементов словаря --
+users = [{'name': 'Todd', 'phone': '551-1414', 'email': 'todd@gmail.com'},
+         {'name': 'Helga', 'phone': '555-1618', 'email': 'helga@mail.net'},
+         {'name': 'Olivia', 'phone': '449-3141', 'email': ''},
+         {'name': 'LJ', 'phone': '555-2718', 'email': 'lj@gmail.net'},
+         {'name': 'Ruslan', 'phone': '422-145-9098', 'email': 'rus-lan.cha@yandex.ru'},
+         {'name': 'John', 'phone': '233-421-32', 'email': ''},
+         {'name': 'Lara', 'phone': '+7998-676-2532', 'email': 'g.lara89@gmail.com'},
+         {'name': 'Alina', 'phone': '+7948-799-2434', 'email': 'ali.ch.b@gmail.com'},
+         {'name': 'Robert', 'phone': '420-2011', 'email': ''},
+         {'name': 'Riyad', 'phone': '128-8890-128', 'email': 'r.mahrez@mail.net'},
+         {'name': 'Khabib', 'phone': '+7995-600-9080', 'email': 'kh.nurmag@gmail.com'},
+         {'name': 'Olga', 'phone': '6449-314-1213', 'email': ''},
+         {'name': 'Roman', 'phone': '+7459-145-8059', 'email': 'roma988@mail.ru'},
+         {'name': 'Maria', 'phone': '12-129-3148', 'email': 'm.sharapova@gmail.com'},
+         {'name': 'Fedor', 'phone': '+7445-341-0545', 'email': ''},
+         {'name': 'Tim', 'phone': '242-449-3141', 'email': 'timm.ggg@yandex.ru'}]
 
-# Для вывода Ключей словаря каждого на отдельной строке можно использовать следующий код:
-capitals = {'Россия': 'Москва', 'Франция': 'Париж', 'Чехия': 'Прага'}
-
-for key in capitals:
-    print(key)
-print()
-
-
-# Для вывода Значений словаря каждого на отдельной строке можно использовать следующий код:
-capitals = {'Россия': 'Москва', 'Франция': 'Париж', 'Чехия': 'Прага'}
-
-for key in capitals:
-    print(capitals[key])
-print()
-
-
-
-# -- Методы keys(), values(), items() --
-
-# Словарный метод keys() возвращает список ключей всех элементов словаря.
-capitals = {'Россия': 'Москва', 'Франция': 'Париж', 'Чехия': 'Прага'}
-
-for key in capitals.keys():     # итерируем по списку ['Россия', 'Франция', 'Чехия']
-    print(key)
-print()
-
-
-# Словарный метод values() возвращает список значений всех элементов словаря.
-capitals = {'Россия': 'Москва', 'Франция': 'Париж', 'Чехия': 'Прага'}
-
-for value in capitals.values():     # итерируем по списку ['Москва', 'Париж', 'Прага']
-    print(value)
-print()
-
-# Словарный метод items() возвращает список всех элементов словаря, состоящий из кортежей пар (ключ, значение).
-capitals = {'Россия': 'Москва', 'Франция': 'Париж', 'Чехия': 'Прага'}
-
-for item in capitals.items():
-    print(item)
-print()
-
-# Используя магию распаковки кортежей, можно писать такой код:
-capitals = {'Россия': 'Москва', 'Франция': 'Париж', 'Чехия': 'Прага'}
-
-for key, value in capitals.items():
-    print(key, '-', value)
-print()
-
-# Сортировка словаря по значениям
-capitals = {'Россия': 'Москва', 'Англия': 'Лондон', 'Чехия': 'Прага', 'Бразилия': 'Бразилиа'}
-
-for key, value in sorted(capitals.items(), key = lambda x: x[1]):
-    print(value)
-# При сортировке словаря по значениям, мы используем анонимную функцию lambda x: x[1]
-
-
-# Примечание.
-# Словарные методы items(), keys(), values() возвращают не совсем обычные списки (list).
-# Типы этих объектов – dict_items, dict_keys и dict_values соответственно. Методы обычных списков для них недоступны.
-# Используйте явное преобразование с помощью функции list() для получения доступа к методам списков.
+res = [user['name'] for user in users if user['phone'].endswith('8')]
+print(*sorted(res))
