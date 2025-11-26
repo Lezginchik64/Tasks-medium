@@ -1,10 +1,18 @@
-dict = {'CS101': {'audience_number': '3004', 'teacher': 'Хайнс', 'time': '8:00'},
-        'CS102': {'audience_number': '4501', 'teacher': 'Альварадо', 'time': '9:00'},
-        'CS103': {'audience_number': '6755', 'teacher': 'Рич', 'time': '10:00'},
-        'NT110': {'audience_number': '1244', 'teacher': 'Берк', 'time': '11:00'},
-        'CM241': {'audience_number': '1411', 'teacher': 'Ли', 'time': '13:00'}}
-
-course = input()
-if course in dict:
-    res = dict[course]
-    print(f"{course}: {res['audience_number']}, {res['teacher']}, {res['time']}")
+d = {
+    "1": ".,?!:",
+    "2": "ABC",
+    "3": "DEF",
+    "4": "GHI",
+    "5": "JKL",
+    "6": "MNO",
+    "7": "PQRS",
+    "8": "TUV",
+    "9": "WXYZ",
+    "0": " "
+}
+text = input().upper()
+for letter in text:                              # достаем буквы из введенного текста
+    for key, values in d.items():
+        if letter in values:                     # проверяем есть ли буква в значениях словаря
+            pos = values.index(letter) + 1       # определяем позицию буквы в значениях словаря, +1 - чтобы отсчет был от 1
+            print(key * pos, end="")
