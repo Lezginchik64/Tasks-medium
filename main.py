@@ -1,27 +1,3 @@
-pets = [('Hatiko', 'Parker', 'Wilson', 50),
-        ('Rusty', 'Josh', 'King', 25),
-        ('Fido', 'John', 'Smith', 28),
-        ('Butch', 'Jake', 'Smirnoff', 18),
-        ('Odi', 'Emma', 'Wright', 18),
-        ('Balto', 'Josh', 'King', 25),
-        ('Barry', 'Josh', 'King', 25),
-        ('Snape', 'Hannah', 'Taylor', 40),
-        ('Horry', 'Martha', 'Robinson', 73),
-        ('Giro', 'Alex', 'Martinez', 65),
-        ('Zooma', 'Simon', 'Nevel', 32),
-        ('Lassie', 'Josh', 'King', 25),
-        ('Chase', 'Martha', 'Robinson', 73),
-        ('Ace', 'Martha', 'Williams', 38),
-        ('Rocky', 'Simon', 'Nevel', 32)]
-
-result = {}
-
-# 1
-for pet in pets:
-    result.setdefault(pet[1:], []).append(pet[0])
-
-# 2
-for dog, name, surname, age in pets:
-    key = (name, surname, age)
-    result.setdefault(key, []).append(dog)
-
+lst = [word.strip('.,!?:;-') for word in input().lower().split()]
+d = {lst.count(i): i for i in (sorted(lst, reverse=True))}
+print(d[min(d)])        # d[min(d)] — берёт значение словаря с этим ключом: d[1] → 'world'
