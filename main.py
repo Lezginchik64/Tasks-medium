@@ -1,8 +1,24 @@
-lst = input().split()
-result = {}
-for i in lst:
-    if i in result:               # если слово есть в словаре, добавляю a_1
-        print(f'{i}_{result[i]}', end=" ")
+# 1
+d = {}
+for _ in range(int(input())):
+    key, value = input().split(": ")    # деление строк по двоеточию
+    d[key.lower()] = value              # добавление ключей и элементов в словарь, с уменьшением регистра ключей
+
+s = [input().lower() for _ in range(int(input()))]
+
+for i in s:             # проверка и вывод элементов из словаря
+    if i in d:
+        print(d[i])
     else:
-        print(i, end=" ")       # если нету, добавляю само слово
-    result[i] = result.get(i, 0) + 1    # получаем количество каждой буквы/слова, если встречаем одинаковое, увеличиваем на 1
+        print("Не найдено")
+
+# 2
+d = {}
+for _ in range(int(input())):
+    key, value = input().split(': ')
+    d[key.lower()] = value
+
+for _ in range(int(input())):
+    print(d.get(input().lower(), 'Не найдено'))   # dict.get(key, default) возвращает:
+                                                    # Если key есть в словаре - возвращает значение
+                                                    # Если key нет - 'Не найдено'
