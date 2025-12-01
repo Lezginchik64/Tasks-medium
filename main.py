@@ -1,21 +1,21 @@
 # 1
-d = {}
+dct = {}
 for _ in range(int(input())):
-    country, *cities = input().split()
-    d.update(dict.fromkeys(cities, country))    # update - Он объединяет ключи и значения одного словаря с ключами и значениями другого.
-for _ in range(int(input())):                   # dict.fromkeys(cities, country) - создает новый словарь,
-    print(d[input()])                           # где cities — ключи, а country — значение, которое будет присвоено ВСЕМ ключам.
+    phone, name = input().lower().split()
+    dct.setdefault(name, []).append(phone)
 
+for _ in range(int(input())):
+    print(*dct.get(input().lower(), ['абонент не найден']))
 
 # 2
 d = {}
 for _ in range(int(input())):
-    a, *b = input().split()         # a, *b - первый элемент присваивается "а", остальное "b"
-    d[a] = b
+    a, b = input().lower().split()
+    d.setdefault(b, []).append(a)
 
-res = [input() for i in range(int(input()))]
-for i in res:
-    for j in d:
-        if i in d[j]:
-            print(j)
-            break
+for _ in range(int(input())):
+    i = input().lower()
+    if i in d:
+        print(*d[i])
+    else:
+        print("абонент не найден")
