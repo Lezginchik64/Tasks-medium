@@ -1,27 +1,21 @@
 # 1
-def anagramm(word):
-    d = {}
-    for i in word.lower():
-        if i.isalpha():
-            d[i] = d.get(i, 0) + 1
-    return d
-
-print("YES" if anagramm(input()) == anagramm(input()) else "NO")
-
+d = {}
+for _ in range(int(input())):
+    key, value = input().split()
+    d[key], d[value] = value, key       # словарь заполняется ключами с значениями, затем переворачивает и добавляет еще раз:
+print(d[input()])                       # {'Awful': 'Terrible', 'Terrible': 'Awful', 'Beautiful': 'Pretty', 'Pretty': 'Beautiful'}
 
 # 2
-first = {}
-for i in input().lower():
-    if i in ".,!?:;- ":
-        continue
-    else:
-        first[i] = first.get(i, 0) + 1
+d = {}
+for _ in range(int(input())):
+    key, value = input().split()
+    d[key] = value
 
-second = {}
-for i in input().lower():
-    if i in ".,!?:;- ":
-        continue
-    else:
-        second[i] = second.get(i, 0) + 1
-
-print("YES" if first == second else "NO")
+res = input()
+for i in d:
+    if i == res:
+        print(d[i])
+        break
+    elif d[i] == res:
+        print(i)
+        break
