@@ -1,21 +1,11 @@
-# 1
-dct = {}
-for _ in range(int(input())):
-    phone, name = input().lower().split()
-    dct.setdefault(name, []).append(phone)
+s = input()
+first = {i: s.count(i) for i in s}
 
+second = {}
 for _ in range(int(input())):
-    print(*dct.get(input().lower(), ['абонент не найден']))
+    a, b = input().split(": ")
+    second[int(b)] = a
 
-# 2
-d = {}
-for _ in range(int(input())):
-    a, b = input().lower().split()
-    d.setdefault(b, []).append(a)
-
-for _ in range(int(input())):
-    i = input().lower()
-    if i in d:
-        print(*d[i])
-    else:
-        print("абонент не найден")
+for i in s:
+    print(second[first[i]], end="")     # first[i] — узнаём, сколько раз эта буква встречается в слове.
+                                        # second[first[i]] — по этой частоте берём настоящую букву.
