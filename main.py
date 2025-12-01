@@ -1,21 +1,21 @@
 # 1
 d = {}
 for _ in range(int(input())):
-    key, value = input().split()
-    d[key], d[value] = value, key       # словарь заполняется ключами с значениями, затем переворачивает и добавляет еще раз:
-print(d[input()])                       # {'Awful': 'Terrible', 'Terrible': 'Awful', 'Beautiful': 'Pretty', 'Pretty': 'Beautiful'}
+    country, *cities = input().split()
+    d.update(dict.fromkeys(cities, country))    # update - Он объединяет ключи и значения одного словаря с ключами и значениями другого.
+for _ in range(int(input())):                   # dict.fromkeys(cities, country) - создает новый словарь,
+    print(d[input()])                           # где cities — ключи, а country — значение, которое будет присвоено ВСЕМ ключам.
+
 
 # 2
 d = {}
 for _ in range(int(input())):
-    key, value = input().split()
-    d[key] = value
+    a, *b = input().split()         # a, *b - первый элемент присваивается "а", остальное "b"
+    d[a] = b
 
-res = input()
-for i in d:
-    if i == res:
-        print(d[i])
-        break
-    elif d[i] == res:
-        print(i)
-        break
+res = [input() for i in range(int(input()))]
+for i in res:
+    for j in d:
+        if i in d[j]:
+            print(j)
+            break
