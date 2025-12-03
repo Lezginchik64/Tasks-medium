@@ -1,9 +1,13 @@
-tuples = [(1, 2, 3), (4, 5, 6), (7, 8, 9), (10, 11, 12), (13, 14, 15), (16, 17, 18), (19, 20, 21), (22, 23, 24),
-          (25, 26, 27), (28, 29, 30), (31, 32, 33), (34, 35, 36)]
+student_ids = ['S001', 'S002', 'S003', 'S004', 'S005', 'S006', 'S007', 'S008', 'S009', 'S010', 'S011', 'S012', 'S013']
+student_names = ['Camila Rodriguez', 'Juan Cruz', 'Dan Richards', 'Sam Boyle', 'Batista Cesare', 'Francesco Totti',
+                 'Khalid Hussain', 'Ethan Hawke', 'David Bowman', 'James Milner', 'Michael Owen', 'Gary Oldman',
+                 'Tom Hardy']
+student_grades = [86, 98, 89, 92, 45, 67, 89, 90, 100, 98, 10, 96, 93]
 
 # 1
-result = {key: (*val,) for key, *val in tuples}
+result = [{key: {val[0]: val[1]}} for key, *val in zip(student_ids, student_names, student_grades)]
+
 # 2
-result = {i[0]: i[1:] for i in tuples}
+result = [{a: {b: c}} for a, b, c in zip(student_ids, student_names, student_grades)]
 
 print(result)
