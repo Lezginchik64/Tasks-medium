@@ -1,7 +1,9 @@
-students = {'Timur': (170, 75), 'Ruslan': (180, 105), 'Soltan': (192, 68), 'Roman': (175, 70), 'Madlen': (160, 50),
-            'Stefani': (165, 70), 'Tom': (190, 90), 'Jerry': (180, 87), 'Anna': (172, 67), 'Scott': (168, 78),
-            'John': (186, 79), 'Alex': (195, 120), 'Max': (200, 110), 'Barak': (180, 89), 'Donald': (170, 80),
-            'Rustam': (186, 100), 'Alice': (159, 59), 'Rita': (170, 80), 'Mary': (175, 69), 'Jane': (190, 80)}
+tuples = [(1, 2, 3), (4, 5, 6), (7, 8, 9), (10, 11, 12), (13, 14, 15), (16, 17, 18), (19, 20, 21), (22, 23, 24),
+          (25, 26, 27), (28, 29, 30), (31, 32, 33), (34, 35, 36)]
 
-result = {key: val for key, val in students.items() if val[0] > 167 and val[1] < 75}
+# 1
+result = {key: (*val,) for key, *val in tuples}
+# 2
+result = {i[0]: i[1:] for i in tuples}
+
 print(result)
