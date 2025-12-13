@@ -1,10 +1,7 @@
 from fractions import Fraction as F
-from math import gcd
 
-n = int(input())
-a = n // 2  # числитель
-b = n - a  # знаменатель  a + b = n, поэтому b = n - a
-while gcd(a, b) != 1:       # gcd - наибольший общий делитель
-    a -= 1
-    b += 1
-print(F(a, b))
+res = set()
+for i in range(2, int(input()) + 1):    # Знаменатель i начинается с 2, потому что дробь должна быть между 0 и 1 (не включая 0 и 1)
+    for j in range(1, i):       # j начинается с 1, потому что по условию дробь должна быть меньше единицы, значит, j должен быть меньше i
+        res.add(F(j, i))
+print(*sorted(res), sep='\n')
