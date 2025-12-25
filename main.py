@@ -1,14 +1,49 @@
-athletes = [('Дима', 10, 130, 35), ('Тимур', 11, 135, 39), ('Руслан', 9, 140, 33), ('Рустам', 10, 128, 30),
-            ('Амир', 16, 170, 70), ('Рома', 16, 188, 100), ('Матвей', 17, 168, 68), ('Петя', 15, 190, 90)]
+from math import sin, sqrt
 
 
-def gen_comparator(a=1): # вводится число
-    def comp(b):
-        return b[a - 1]     # срез списка b по числу [a - 1].
-                            # То, что функция comp видит и может использовать число "a" из главной функции и называется ЗАМЫКАНИЕ
-    return comp     # возвращается внутрненняя функция без вызова
+# 1
+def f1(p):
+    def f2(n):
+        return n ** p
+
+    return f2
 
 
-res = gen_comparator(int(input()))
-athletes.sort(key=res)
-print(athletes)
+n = int(input())
+commands = {'квадрат': f1(2), 'куб': f1(3), 'корень': f1(0.5), 'модуль': abs, 'синус': sin}
+print(commands[input()](n))  # эквивалент этой записи - f1(2)(n)
+
+
+# 2
+def func(n, p):
+    return {'квадрат': n ** 2, 'куб': n ** 3, 'корень': n ** 0.5, 'модуль': abs(n), 'синус': sin(n)}[p]  # print(func(5, "квадрат"))
+
+print(func(int(input()), input()))
+
+
+# 3
+def f1(num):
+    return num ** 2
+
+
+def f2(num):
+    return num ** 3
+
+
+def f3(num):
+    return sqrt(num)
+
+
+def f4(num):
+    return abs(num)
+
+
+def f5(num):
+    return sin(num)
+
+
+n = int(input())
+commands = {'квадрат': f1, 'куб': f2, 'корень': f3, 'модуль': f4, 'синус': f5}
+s = input()
+if s in commands:
+    print(commands[s](n))
