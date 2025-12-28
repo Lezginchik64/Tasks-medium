@@ -1,31 +1,23 @@
-def map(function, items):
-    result = []
+def reduce(operation, items, initial_value):
+    acc = initial_value
     for item in items:
-        result.append(function(item))
-    return result
+        acc = operation(acc, item)
+    return acc
 
 
-def filter(function, items):
-    result = []
-    for item in items:
-        if function(item):
-            result.append(item)
-    return result
+numbers = [97, 42, 9, 32, 3, 45, 31, 77, -1, 11, -2, 75, 5, 51, 34, 28, 46, 1, -8, 84, 16, 51, 90, 56, 65, 90, 23, 35,
+           11, -10, 70, 90, 90, 12, 96, 58, -8, -4, 91, 76, 94, 60, 72, 43, 4, -6, -5, 51, 58, 60, 30, 38, 67, 62, 36,
+           72, 34, 82, 62, -1, 60, 82, 87, 81, -7, 57, 26, 36, 17, 43, 80, 40, 75, 94, 91, 64, 38, 72, 29, 84, 38, 35,
+           7, 54, 31, 95, 78, 27, 82, 1, 64, 94, 31, 29, -8, 98, 24, 61, 7, 73]
 
 
-numbers = [1014, 1321, 675, 1215, 56, 1386, 1385, 431, 1058, 486, 1434, 696, 1016, 1084, 424, 1189, 475, 95, 1434, 1462,
-           815, 776, 657, 1225, 912, 537, 1478, 1176, 544, 488, 668, 944, 207, 266, 1309, 1027, 257, 1374, 1289, 1155,
-           230, 866, 708, 144, 1434, 1163, 345, 394, 560, 338, 232, 182, 1438, 1127, 928, 1309, 98, 530, 1013, 898, 669,
-           105, 130, 1363, 947, 72, 1278, 166, 904, 349, 831, 1207, 1496, 370, 725, 926, 175, 959, 1282, 336, 1268, 351,
-           1439, 186, 273, 1008, 231, 138, 142, 433, 456, 1268, 1018, 1274, 387, 120, 340, 963, 832, 1127]
+def kvadr2(num):
+    return num ** 2
 
 
-def kub(num):
-    return num ** 3
+def kvadr(x, y):
+    return x + y ** 2   # x - сумма, y - число из списка
 
 
-def delit(num):
-    return len(str(num)) == 3 and num % 5 == 2
-
-
-print(*map(kub, filter(delit, numbers)), sep='\n')
+print(reduce(kvadr, numbers, 0)) # reduce
+print(sum(map(kvadr2, numbers))) # map
