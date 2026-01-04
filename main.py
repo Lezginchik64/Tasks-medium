@@ -1,6 +1,10 @@
-func = lambda x: x % 19 == 0 or x % 13 == 0
-print(func(19))
-print(func(13))
-print(func(20))
-print(func(15))
-print(func(247))
+# 1
+func = lambda x: x[0].lower() == x[-1].lower() == 'a'
+# 2
+func = lambda x: x[0] in 'aA' and x[-1] in 'aA'
+print(func('abcd'))
+print(func('bcda'))
+print(func('abcda'))
+print(func('Abcd'))
+print(func('bcdA'))
+print(func('abcdA'))
