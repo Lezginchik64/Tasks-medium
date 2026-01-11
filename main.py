@@ -1,6 +1,12 @@
-countries = ['Russia', 'USA', 'UK', 'Germany', 'France', 'India']
-capitals = ['Moscow', 'Washington', 'London', 'Berlin', 'Paris', 'Delhi']
-population = [145_934_462, 331_002_651, 80_345_321, 67_886_011, 65_273_511, 1_380_004_385]
+# 1
+abscissas, ordinates, applicates = (map(float, input().split()) for _ in range(3))
+print(all(map(lambda x: x[0] ** 2 + x[1] ** 2 + x[2] ** 2 <= 4, zip(abscissas, ordinates, applicates))))
 
-for a, b, c in zip(population, countries, capitals):
-    print(f'{c} is the capital of {b}, population equal {a} people.')
+# 2
+abscissas = [float(i) for i in input().split()]
+ordinates = [float(i) for i in input().split()]
+applicates = [float(i) for i in input().split()]
+
+num = list(zip(abscissas, ordinates, applicates))
+res = all(x ** 2 + y ** 2 + z ** 2 <= 4 for x, y, z in num)
+print(res)
