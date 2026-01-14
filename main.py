@@ -1,6 +1,3 @@
-def check(num):
-    return all(map(lambda x: int(x) and num % int(x) == 0, str(num)))
-
-
-a = [i for i in range(int(input()), int(input()) + 1)]
-print(*list(filter(lambda x: check(x), a)))
+password = input()
+print("YES" if all([any(i.isupper() for i in password), any(i.islower() for i in password),
+                    any(i.isdigit() for i in password), len(password) >= 7]) else 'NO')
