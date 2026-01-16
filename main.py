@@ -1,8 +1,11 @@
-file = open(r'/Users/lezginchik/Downloads/numbers.txt')
+file = open(r'/Users/lezginchik/Downloads/nums.txt')
+
 # 1
-print(sum(map(int, file)))
+lines = file.read().split()
+print(sum(map(int, lines)))
+
 # 2
-lines = file.readlines()
-print(int(lines[0]) + int(lines[1]))
+lines = [i.strip() for i in file if i.strip()]
+print(sum(map(int, lines)))
 
 file.close()
