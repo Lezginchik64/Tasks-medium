@@ -1,3 +1,3 @@
 file = open(input())
-print(file.read())
+print(file.readlines()[-3])
 file.close()
