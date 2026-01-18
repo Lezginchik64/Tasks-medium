@@ -1,10 +1,11 @@
 # 1
 with open("asd.txt") as file:
-    for line in file:
-        print(sum(map(int, line.split())))
+    row = ''.join(i if i.isdigit() else " " for i in file.read())
+    print(sum(map(int, row.split())))
 
 # 2
 with open("asd.txt") as file:
-    for line in file:
-        line = [int(i) for i in line.strip().split()]
-        print(sum(line))
+    lines = file.read()
+    for i in filter(lambda x: not x.isdigit(), lines):
+        lines = lines.replace(i, " ")
+    print(sum(map(int, lines.split())))
